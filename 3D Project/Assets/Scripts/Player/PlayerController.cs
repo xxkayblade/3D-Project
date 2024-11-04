@@ -22,13 +22,13 @@ public class PlayerController : MonoBehaviour
     private Transform enemy;
     public Transform tongueStart;
     private LineRenderer tongue;
-    // attackTime
 
     [Header("Checks")]
     public bool grounded = true;
     public bool isGrappling = false;
 
     public Transform ResapawnPoint;
+    public GameObject winScreen;
     Rigidbody playerRB;
 
     // Start is called before the first frame update
@@ -111,9 +111,17 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Death" || other.gameObject.tag == "EnemyRight" || other.gameObject.tag == "EnemyLeft")
         {
-            Debug.Log("death");
+            Debug.Log("death!");
            transform.position = ResapawnPoint.position;
         }
+
+        if (other.gameObject.tag == "Finish")
+        {
+            Debug.Log("win!");
+            Destroy(gameObject);
+            winScreen.SetActive(true);
+        }
+
 
         switch (other.gameObject.tag)
         {
