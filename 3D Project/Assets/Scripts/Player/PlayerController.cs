@@ -7,10 +7,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Movement")]
-    [SerializeField] float sideSpeed = 7f; // side to side movement for player
-    [SerializeField] float continuousSpeed = 7f; // constant forward speed for player
-    [SerializeField] float jumpHeight = 15f;
-    [SerializeField] float gravityScale = 4f;
+    [SerializeField] float sideSpeed = 7f;
+    [SerializeField] float continuousSpeed = 20f;
+    [SerializeField] float jumpHeight = 16f;
+    [SerializeField] float gravityScale = 3.5f;
 
     [Header("Player Attack")]
     [SerializeField] float enemyDetectRadius = 10f; // detection sphere around player
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             grounded = false;
             playerRB.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
-
+        
         if (!grounded)
         {
             playerRB.AddForce(Vector3.down * gravityScale, ForceMode.Acceleration);
