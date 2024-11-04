@@ -7,6 +7,12 @@ TagManager:
   - Ground
   - Death
   - GrappleBlock
+  - BouncePadOne
+  - BouncePadTwo
+  - BouncePadThree
+  - BouncePadFour
+  - EnemyRight
+  - EnemyLeft
   layers:
   - Default
   - TransparentFX

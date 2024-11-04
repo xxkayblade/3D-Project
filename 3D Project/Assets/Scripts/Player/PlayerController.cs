@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Movement")]
     [SerializeField] float sideSpeed = 7f;
     [SerializeField] float continuousSpeed = 20f;
-    [SerializeField] float jumpHeight = 16f;
+    [SerializeField] float jumpHeight = 15f;
     [SerializeField] float gravityScale = 3.5f;
 
     [Header("Player Attack")]
@@ -65,8 +65,6 @@ public class PlayerController : MonoBehaviour
                 tongue.enabled = false;
             }
         }
-
-
     }
 
     private void FixedUpdate()
@@ -109,28 +107,38 @@ public class PlayerController : MonoBehaviour
         Destroy(enemy.gameObject);
     }
 
-    /*void MoveTongue()
-    {
-        tongue.transform.position = Vector3.MoveTowards(tongue.transform.position, enemy.position, tongueSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(tongue.transform.position, enemy.position) < 0.1f)
-        {
-            Destroy(enemy.gameObject);
-            Destroy(tongue);
-        }
-    }*/
-
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Ground")
-        {
-            grounded = true;
-        }
-
-        if (other.gameObject.tag == "Death")
+        if (other.gameObject.tag == "Death" || other.gameObject.tag == "EnemyRight" || other.gameObject.tag == "EnemyLeft")
         {
             Debug.Log("death");
            transform.position = ResapawnPoint.position;
+        }
+
+        switch (other.gameObject.tag)
+        {
+            case "Ground":
+                grounded = true;
+                jumpHeight = 15;
+                continuousSpeed = 20;
+                break;
+            case "BouncePadOne":
+                grounded = true;
+                jumpHeight = 30;
+                break;
+            case "BouncePadTwo":
+                grounded = true;
+                jumpHeight = 40;
+                break;
+            case "BouncePadThree":
+                grounded = true;
+                jumpHeight = 45;
+                continuousSpeed = 25f;
+                break;
+            case "BouncePadFour":
+                grounded = true;
+                jumpHeight = 50;
+                break;
         }
     }
 

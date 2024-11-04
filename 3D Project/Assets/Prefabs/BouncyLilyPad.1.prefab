@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2246254256362953797}
   - component: {fileID: 2237148177961127431}
   - component: {fileID: 4241787091474313969}
-  - component: {fileID: 1022630872438073773}
   m_Layer: 0
   m_Name: BouncyLilyPad.1
   m_TagString: Ground
@@ -99,19 +98,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0876731, y: 0.118237056, z: 1.0555438}
   m_Center: {x: -0.0034521702, y: -0.054822974, z: -0.007412945}
---- !u!114 &1022630872438073773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2260768258432093823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41d072ddf2796cb4098763f5b0382cee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceForce: 20
 --- !u!1001 &7402882913485317176
 PrefabInstance:
   m_ObjectHideFlags: 0
